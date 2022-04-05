@@ -1,3 +1,9 @@
+// inlcude dotenv for environment variables
+require('dotenv').config();
+
+// include database config file
+const connectDB = require('./db');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,6 +12,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+// Connect to database
+connectDB();
 
 var app = express();
 
